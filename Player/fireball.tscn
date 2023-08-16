@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://lcsekr67212l"]
+
+[ext_resource type="Texture2D" uid="uid://cbfp4hm6n3643" path="res://Pixilart Sprite Sheet.png" id="1_0gv5t"]
+[ext_resource type="Script" path="res://Player/fireball.gd" id="1_8ub67"]
+[ext_resource type="Texture2D" uid="uid://cobulp6r2dhbx" path="res://Untitled.png" id="2_jdwv7"]
+
+[sub_resource type="Curve" id="Curve_c7bs1"]
+bake_resolution = 1000
+_data = [Vector2(0.0496454, 1), 1.01775, -3.4251, 0, 0, Vector2(0.985816, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fmtui"]
+width = 731
+curve = SubResource("Curve_c7bs1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pagej"]
+emission_shape = 1
+emission_sphere_radius = 12.51
+particle_flag_disable_z = true
+gravity = Vector3(-51.145, 0.55, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_fmtui")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3ugu"]
+radius = 22.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114e3"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qv65"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l855"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuhi6"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf83x"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ysk"]
+atlas = ExtResource("1_0gv5t")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gh3b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qv65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l855")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuhi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf83x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ysk")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 13.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Fireball" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 4
+collision_mask = 19
+script = ExtResource("1_8ub67")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(66.6667, 10)
+amount = 153
+process_material = SubResource("ParticleProcessMaterial_pagej")
+texture = ExtResource("2_jdwv7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(65, 5)
+shape = SubResource("CircleShape2D_v3ugu")
+
+[node name="fireball" type="AnimatedSprite2D" parent="."]
+position = Vector2(55, 4)
+sprite_frames = SubResource("SpriteFrames_gh3b6")
+animation = &"fireball"
+autoplay = "fireball"
+frame_progress = 0.920279

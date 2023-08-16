@@ -1,0 +1,15 @@
+GPUParticles2D
+Sprite2D
+StaticBody2D
+TileMap
+CollisionShape2D
+Area2D
+Timer
+AnimatedSprite2D
+RigidBody2D
+Node2D
+Marker2D
+CollisionPolygon2D
+Camera2D
+RemoteTransform2D
+CharacterBody2D
