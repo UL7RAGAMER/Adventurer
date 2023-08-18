@@ -1,18 +1,18 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4uv3cur76h0r"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_b3drq"]
+[ext_resource type="Texture2D" uid="uid://8qb7wp3n2blx" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_ohnlv"]
 [ext_resource type="PackedScene" uid="uid://cc8wav40o0jst" path="res://Player/player.tscn" id="4_gwfel"]
-[ext_resource type="Texture2D" uid="uid://8qb7wp3n2blx" path="res://Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="6_1f816"]
-[ext_resource type="Texture2D" uid="uid://tce1qdtiyk10" path="res://Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="6_dhxjt"]
-[ext_resource type="Texture2D" uid="uid://c570c7vgajyph" path="res://Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="7_4uagm"]
+[ext_resource type="Texture2D" uid="uid://b824vqmg8305l" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="5_6c535"]
+[ext_resource type="Texture2D" uid="uid://tce1qdtiyk10" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="6_jpngw"]
+[ext_resource type="Texture2D" uid="uid://c570c7vgajyph" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="7_whoyi"]
 [ext_resource type="Script" path="res://Level/Portal.gd" id="8_cvmg7"]
-[ext_resource type="Texture2D" uid="uid://b824vqmg8305l" path="res://Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="8_q77gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtydr"]
 size = Vector2(82, 69)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b7onp"]
-texture = ExtResource("6_dhxjt")
+texture = ExtResource("6_jpngw")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -765,7 +765,7 @@ texture = ExtResource("6_dhxjt")
 7:14/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y80tj"]
-texture = ExtResource("8_q77gw")
+texture = ExtResource("5_6c535")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1863,7 +1863,7 @@ texture = ExtResource("8_q77gw")
 24:22/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7k8lm"]
-texture = ExtResource("7_4uagm")
+texture = ExtResource("7_whoyi")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -3329,25 +3329,48 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Sky" type="Node2D" parent="."]
-visible = false
-
-[node name="B3" type="Sprite2D" parent="Sky"]
-z_index = -14
-position = Vector2(5187, 938.5)
-scale = Vector2(7.23459, 6.84926)
-texture = ExtResource("6_1f816")
 
 [node name="B" type="Sprite2D" parent="Sky"]
 z_index = -14
-position = Vector2(1732.95, 938.5)
-scale = Vector2(7.23459, 6.84926)
-texture = ExtResource("6_1f816")
+position = Vector2(683.527, 371.5)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
 
 [node name="B2" type="Sprite2D" parent="Sky"]
 z_index = -14
-position = Vector2(5187, 938.5)
-scale = Vector2(7.23459, 6.84926)
-texture = ExtResource("6_1f816")
+position = Vector2(1840, 371.5)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
+
+[node name="B3" type="Sprite2D" parent="Sky"]
+z_index = -14
+position = Vector2(3208, 371.5)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
+
+[node name="B4" type="Sprite2D" parent="Sky"]
+z_index = -14
+position = Vector2(688, 904)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
+region_enabled = true
+region_rect = Rect2(0, 138, 480, 134)
+
+[node name="B5" type="Sprite2D" parent="Sky"]
+z_index = -14
+position = Vector2(2056, 904)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
+region_enabled = true
+region_rect = Rect2(0, 138, 480, 134)
+
+[node name="B6" type="Sprite2D" parent="Sky"]
+z_index = -14
+position = Vector2(3208, 904)
+scale = Vector2(2.86199, 2.68014)
+texture = ExtResource("3_ohnlv")
+region_enabled = true
+region_rect = Rect2(0, 138, 480, 134)
 
 [node name="Portal" type="StaticBody2D" parent="."]
 position = Vector2(-3107, -436)
@@ -3359,7 +3382,7 @@ script = ExtResource("8_cvmg7")
 [node name="Sprite2D" type="Sprite2D" parent="Portal"]
 z_index = -4
 position = Vector2(4111, 1058)
-texture = ExtResource("8_q77gw")
+texture = ExtResource("5_6c535")
 region_enabled = true
 region_rect = Rect2(271, 208, 129, 159)
 

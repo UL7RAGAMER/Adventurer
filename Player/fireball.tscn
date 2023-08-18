@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://lcsekr67212l"]
+[gd_scene load_steps=21 format=3 uid="uid://lcsekr67212l"]
 
-[ext_resource type="Texture2D" uid="uid://cbfp4hm6n3643" path="res://Pixilart Sprite Sheet.png" id="1_0gv5t"]
 [ext_resource type="Script" path="res://Player/fireball.gd" id="1_8ub67"]
-[ext_resource type="Texture2D" uid="uid://cobulp6r2dhbx" path="res://Untitled.png" id="2_jdwv7"]
+[ext_resource type="Texture2D" uid="uid://dnieujclbjurx" path="res://Texture/fb_particles.png" id="2_va0oi"]
+[ext_resource type="Texture2D" uid="uid://cbfp4hm6n3643" path="res://Texture/Pixilart Sprite Sheet.png" id="3_r7gbh"]
+[ext_resource type="Texture2D" uid="uid://dtq4h0lt84nlk" path="res://Texture/fb.png" id="4_0ib0o"]
 
 [sub_resource type="Curve" id="Curve_c7bs1"]
 bake_resolution = 1000
@@ -17,7 +18,8 @@ curve = SubResource("Curve_c7bs1")
 emission_shape = 1
 emission_sphere_radius = 12.51
 particle_flag_disable_z = true
-gravity = Vector3(-51.145, 0.55, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -66.5
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.0
@@ -28,28 +30,48 @@ scale_curve = SubResource("CurveTexture_fmtui")
 radius = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_114e3"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qv65"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l855"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuhi6"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jf83x"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(400, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8ysk"]
-atlas = ExtResource("1_0gv5t")
+atlas = ExtResource("3_r7gbh")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn57e"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1i87"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txrcn"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g010n"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds5dp"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(280, 0, 70, 70)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gh3b6"]
 animations = [{
@@ -76,10 +98,25 @@ animations = [{
 "name": &"fireball",
 "speed": 13.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn57e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1i87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txrcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g010n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds5dp")
+}],
 "loop": true,
 "name": &"new_animation",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Fireball" type="Area2D"]
@@ -92,7 +129,7 @@ script = ExtResource("1_8ub67")
 position = Vector2(66.6667, 10)
 amount = 153
 process_material = SubResource("ParticleProcessMaterial_pagej")
-texture = ExtResource("2_jdwv7")
+texture = ExtResource("2_va0oi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(65, 5)
@@ -101,6 +138,7 @@ shape = SubResource("CircleShape2D_v3ugu")
 [node name="fireball" type="AnimatedSprite2D" parent="."]
 position = Vector2(55, 4)
 sprite_frames = SubResource("SpriteFrames_gh3b6")
-animation = &"fireball"
-autoplay = "fireball"
-frame_progress = 0.920279
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 2
+frame_progress = 0.999643
