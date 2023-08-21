@@ -142,6 +142,7 @@ physics_material_override = SubResource("PhysicsMaterial_txooo")
 linear_damp = 3.187
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 position = Vector2(-1, 4.76837e-07)
 scale = Vector2(0.677814, 0.495091)
 amount = 1209
@@ -160,4 +161,3 @@ scale = Vector2(1.56375, 1.56375)
 sprite_frames = SubResource("SpriteFrames_i7pbb")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.670831

@@ -1,5 +1,8 @@
-res://Level/level.tscn::f9b4ce09174ccb3ae58babd8abeeeb2b::1692112244::res://.godot/exported/133200997/export-c4be25a6cd29300dd9cba31c4cc13b7a-level.scn
+res://Level/level.tscn::ce2793a019ec2c0c3a1185b5770ee0de::1692538653::res://.godot/exported/133200997/export-c4be25a6cd29300dd9cba31c4cc13b7a-level.scn
 res://Level/wall.tscn::438b6d56791b823ea93c4f098b99bfd1::1691924161::res://.godot/exported/133200997/export-9b736158db4afb0322a65c89fa1f92b0-wall.scn
-res://Player/player.tscn::f0c2f830d483b070f0e188ff1ec10cb7::1692112244::res://.godot/exported/133200997/export-d267b47f7e81a3258979164d56d0d9c2-player.scn
-res://Player/bluefb.tscn::31ed207ed9dac03c5e8753bf17272f15::1692112244::res://.godot/exported/133200997/export-ddbcfe1e076679fc35a448151b76ec06-bluefb.scn
-res://Player/fireball.tscn::2cb7c6ddfa6c2dbc026d1e451fda3bec::1692112308::res://.godot/exported/133200997/export-ed71bb003acd43be6b621428ea8d55b2-fireball.scn
+res://Player/player.tscn::b17901c4ceea69652a9e494c0e33de36::1692538653::res://.godot/exported/133200997/export-d267b47f7e81a3258979164d56d0d9c2-player.scn
+res://Player/bluefb.tscn::4bf23d9d878ad508afa3444661aa8c9c::1692439729::res://.godot/exported/133200997/export-ddbcfe1e076679fc35a448151b76ec06-bluefb.scn
+res://Player/fireball.tscn::d083eacc762226fdc39533e4d0a9768c::1692538653::res://.godot/exported/133200997/export-ed71bb003acd43be6b621428ea8d55b2-fireball.scn
+res://Player/character_body_2d.tscn::2d35982991b8fd972d2e1001acebe89d::1692538653::res://.godot/exported/133200997/export-f5ddaea8460583c6869441bd9d87835c-character_body_2d.scn
+res://Player/game.tscn::2cb4c6049bfad956b4bb04b352559c15::1692538653::res://.godot/exported/133200997/export-07181ce6bff4901207b689d482808a8a-game.scn
+res://Player/trasisin.tscn::877fe9e21a00769c564460f30335f0d4::1692538653::res://.godot/exported/133200997/export-1ee46ed7bd660025abbcd59723b21267-trasisin.scn

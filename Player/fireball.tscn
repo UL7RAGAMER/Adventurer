@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://lcsekr67212l"]
 
 [ext_resource type="Script" path="res://Player/fireball.gd" id="1_8ub67"]
-[ext_resource type="Texture2D" uid="uid://dnieujclbjurx" path="res://Texture/fb_particles.png" id="2_va0oi"]
-[ext_resource type="Texture2D" uid="uid://cbfp4hm6n3643" path="res://Texture/Pixilart Sprite Sheet.png" id="3_r7gbh"]
-[ext_resource type="Texture2D" uid="uid://dtq4h0lt84nlk" path="res://Texture/fb.png" id="4_0ib0o"]
+[ext_resource type="Texture2D" uid="uid://cnkiuh551ksas" path="res://Texture/fb_particles.png" id="2_va0oi"]
+[ext_resource type="Texture2D" uid="uid://da3jettf3sn8r" path="res://Texture/Pixilart Sprite Sheet.png" id="3_r7gbh"]
+[ext_resource type="Texture2D" uid="uid://dtf3swtk0u4bn" path="res://Texture/fb.png" id="4_0ib0o"]
 
 [sub_resource type="Curve" id="Curve_c7bs1"]
 bake_resolution = 1000
@@ -116,13 +116,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"new_animation",
-"speed": 10.0
+"speed": 14.0
 }]
 
 [node name="Fireball" type="Area2D"]
 scale = Vector2(0.6, 0.6)
 collision_layer = 4
-collision_mask = 19
+collision_mask = 23
 script = ExtResource("1_8ub67")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -140,5 +140,6 @@ position = Vector2(55, 4)
 sprite_frames = SubResource("SpriteFrames_gh3b6")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame = 2
-frame_progress = 0.999643
+frame_progress = 0.46376
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

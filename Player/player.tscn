@@ -1,8 +1,9 @@
-[gd_scene load_steps=54 format=3 uid="uid://cc8wav40o0jst"]
+[gd_scene load_steps=63 format=3 uid="uid://cc8wav40o0jst"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_edqt5"]
-[ext_resource type="Texture2D" uid="uid://cofdlew8rqelw" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_td4xw"]
-[ext_resource type="Texture2D" uid="uid://kw1bfxfoq5of" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="3_ob3vl"]
+[ext_resource type="Texture2D" uid="uid://k2w7ahe40bkw" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_td4xw"]
+[ext_resource type="Texture2D" uid="uid://bdwt5spr5w1gq" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Dead/Dead-Sheet.png" id="3_3wc0a"]
+[ext_resource type="Texture2D" uid="uid://c35w5md5fv66x" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="3_ob3vl"]
 [ext_resource type="Texture2D" uid="uid://27xiraop08wp" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="4_1gdc1"]
 [ext_resource type="Texture2D" uid="uid://cou1kdbbxquoe" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png" id="5_rees1"]
 [ext_resource type="Texture2D" uid="uid://buv11wcvjny72" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png" id="6_lcd4u"]
@@ -39,6 +40,38 @@ region = Rect2(576, 0, 96, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qakg"]
 atlas = ExtResource("2_td4xw")
 region = Rect2(672, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtkg5"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj541"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfxh"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8kxw"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_716fr"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_068ls"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4ui8"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l08n7"]
+atlas = ExtResource("3_3wc0a")
+region = Rect2(560, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxae5"]
 atlas = ExtResource("3_ob3vl")
@@ -212,6 +245,35 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_vtkg5")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qj541")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qcfxh")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_a8kxw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_716fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_068ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4ui8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l08n7")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jxae5")
 }, {
@@ -352,11 +414,12 @@ size = Vector2(20, 61)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_edqt5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="player" type="AnimatedSprite2D" parent="."]
 position = Vector2(-33, -40)
 sprite_frames = SubResource("SpriteFrames_re207")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.763493
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -367,9 +430,16 @@ shape = SubResource("CapsuleShape2D_k1hpf")
 wait_time = 0.5
 one_shot = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 1.125
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="."]
+one_shot = true
+
 [node name="attack" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 18
+collision_mask = 16
 
 [node name="sword" type="CollisionShape2D" parent="attack"]
 position = Vector2(44, -2)
@@ -406,8 +476,10 @@ wait_time = 4.0
 one_shot = true
 
 [node name="Bluefb_cd" type="Timer" parent="."]
-wait_time = 0.001
 one_shot = true
 
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="area_entered" from="attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="Fireball_cd" to="." method="_on_fireball_cd_timeout"]
 [connection signal="timeout" from="Bluefb_cd" to="." method="_on_bluefb_cd_timeout"]

@@ -10,10 +10,18 @@ config_version=5
 
 [application]
 
-config/name="Game"
 run/main_scene="res://Level/level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://Texture/icon.svg"
+
+[autoload]
+
+Trasisin="*res://Player/trasisin.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=777
 
 [input]
 

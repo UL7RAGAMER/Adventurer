@@ -1,5 +1,7 @@
+res://Player/game.tscn
+res://Level/level.gd
 res://Level/level.tscn
-res://Player/fireball.gd
-res://Player/player.tscn
 res://Player/fireball.tscn
-res://Player/bluefb.tscn
+res://Player/player.tscn
+res://Player/character_body_2d.tscn
+res://Player/trasisin.tscn

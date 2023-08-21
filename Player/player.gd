@@ -1,24 +1,26 @@
 extends CharacterBody2D
-
+signal posi(position)
 signal fireball(position,direction )
 signal bluefb(position, direction)
-
+signal atk()
+signal dead()
 const SPEED = 200.0
-const JUMP_VELOCITY = -200.0
-
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+const JUMP_VELOCITY = -220.0
+var health = 5
+var hit = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 var ani_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var was_in_air : bool = false
 var can_attacked : bool = true
 var can_fb : bool = true
 var can_bfb : bool = true
+
+
 func _physics_process(delta):
-	# Add the gravity.
+
+	if health == 0:
+		$Timer3.start()
 	if not is_on_floor():
 		velocity.y += (gravity) * delta
 		was_in_air = true
@@ -33,22 +35,22 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("Left", "Right", "None", 'None')
-	if direction:
-		velocity.x = direction.x * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if Input.is_action_pressed("Right"):
-		get_node("attack").set_scale(Vector2(1, 1))
-	elif Input.is_action_pressed("Left"): 
-		get_node("attack").set_scale(Vector2(-1, 1))
-		
+	if health != 0:	
+		direction = Input.get_vector("Left", "Right", "None", 'None')
+		if direction:
+			velocity.x = direction.x * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if Input.is_action_pressed("Right"):
+			get_node("attack").set_scale(Vector2(1, 1))
+		elif Input.is_action_pressed("Left"): 
+			get_node("attack").set_scale(Vector2(-1, 1))
+			
 	if Input.is_action_just_pressed("fireball") and can_fb:
 		can_fb = false
 		var fb_markers  = $Fireball_pos.get_children()
 		var selected_marker = fb_markers[randi() % fb_markers.size()]
 		var direc_fb = (get_global_mouse_position() - position).normalized()
-		print(selected_marker)
 		$Fireball_cd.start()
 		fireball.emit(selected_marker.global_position, direc_fb)	
 	if Input.is_action_just_pressed("bluefb") and can_bfb:
@@ -58,35 +60,38 @@ func _physics_process(delta):
 		var direc_bfb = (get_global_mouse_position() - position).normalized()
 		$Bluefb_cd.start()
 		bluefb.emit(selected_marker.global_position, direc_bfb)	
-	attack()	
-	move_and_slide()
-	update_animation()
-	update_direction()
-	_on_animated_sprite_2d_animation_finished()
-	
-func update_animation():
 	if not ani_locked:
 		if direction.x != 0:
-			animated_sprite.play("run")
+			$player.play("run")
 		else:
-			animated_sprite.play("idle")	
+			$player.play("idle")
+			pass	
+	attack()
+	posi.emit(position)	
+	move_and_slide()
+
+	update_direction()
+	_on_player_2d_animation_finished()
+	
+
+
 func update_direction():
 	if direction.x > 0:
-		animated_sprite.flip_h = false 
+		$player.flip_h = false 
 	elif direction.x < 0:
-		animated_sprite.flip_h = true			
+		$player.flip_h = true			
 		
 func jump():
 	velocity.y = JUMP_VELOCITY
-	animated_sprite.play("jump_start")
+	$player.play("jump_start")
 	ani_locked = true		
 func  land():
-	animated_sprite.play('jump_end')
+	$player.play('jump_end')
 	ani_locked = true
 func attack():
 	if Input.is_action_just_pressed("Primary Action") and can_attacked:
 
-		animated_sprite.play('atk')
+		$player.play('atk')
 		can_attacked = false
 		$attack/sword.set_deferred("disabled",true)
 		$Timer.start()
@@ -94,11 +99,12 @@ func attack():
 		
 	
 
-func _on_animated_sprite_2d_animation_finished():
-	if animated_sprite.animation == 'jump_end':
+func _on_player_2d_animation_finished():
+	if $player.animation == 'jump_end':
 		ani_locked = false
-	if  animated_sprite.animation == "atk":
+	if  $player.animation == "atk":
 		$attack/sword.set_deferred("disabled", false)
+		
 
 func _on_timer_timeout():
 	can_attacked = true # Replace with function body.
@@ -115,3 +121,31 @@ func _on_bluefb_cd_timeout():
 	can_bfb = true
 	
 	# Replace with function body.
+
+
+func _on_attack_area_entered(area):
+	atk.emit()
+	pass # Replace with function body.
+
+
+
+
+
+func _on_timer_2_timeout():
+	hit = false # Replace with function body.
+
+
+func _on_timer_3_timeout():
+	dead.emit()
+	Trasisin.visible = true
+	Trasisin.change_scene_to_file("res://Player/game.tscn")
+	pass
+
+func _on_character_body_2d_player_hurt():
+	if hit == false:
+		$Timer2.start()		
+		hit = true
+		health -= 1
+		print('hit')
+		pass # Replace with function body
+	pass # Replace with function body.
