@@ -1,7 +1,10 @@
-res://Player/game.tscn
-res://Level/level.gd
+res://Level/control.tscn
 res://Level/level.tscn
+res://Player/player.gd
 res://Player/fireball.tscn
 res://Player/player.tscn
 res://Player/character_body_2d.tscn
+res://Player/game.tscn
 res://Player/trasisin.tscn
+res://Level/wall.tscn
+res://Level/level.gd

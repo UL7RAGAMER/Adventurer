@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://db68kg5lhghjp"]
+[gd_scene load_steps=3 format=3 uid="uid://db68kg5lhghjp"]
 
 [ext_resource type="Script" path="res://Player/game.gd" id="1_2vov3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5saxa"]
+font_size = 316
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,3 +25,19 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.986659, 1.0078)
 color = Color(0.3705, 0.57, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351875
+anchor_top = 0.015444
+anchor_right = 0.687822
+anchor_bottom = 0.196526
+offset_right = 1120.48
+offset_bottom = 293.299
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.324195, 0.324195)
+text = "Game over"
+label_settings = SubResource("LabelSettings_5saxa")
+metadata/_edit_use_anchors_ = true

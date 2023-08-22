@@ -6,7 +6,8 @@ signal atk()
 signal dead()
 const SPEED = 200.0
 const JUMP_VELOCITY = -220.0
-var health = 5
+const max_health = 10
+var health = max_health
 var hit = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var ani_locked : bool = false
@@ -18,7 +19,6 @@ var can_bfb : bool = true
 
 
 func _physics_process(delta):
-
 	if health == 0:
 		$Timer3.start()
 	if not is_on_floor():
@@ -51,6 +51,7 @@ func _physics_process(delta):
 		var fb_markers  = $Fireball_pos.get_children()
 		var selected_marker = fb_markers[randi() % fb_markers.size()]
 		var direc_fb = (get_global_mouse_position() - position).normalized()
+		print('fireball')
 		$Fireball_cd.start()
 		fireball.emit(selected_marker.global_position, direc_fb)	
 	if Input.is_action_just_pressed("bluefb") and can_bfb:
@@ -68,6 +69,7 @@ func _physics_process(delta):
 			pass	
 	attack()
 	posi.emit(position)	
+	up_health()
 	move_and_slide()
 
 	update_direction()
@@ -142,10 +144,28 @@ func _on_timer_3_timeout():
 	pass
 
 func _on_character_body_2d_player_hurt():
+
 	if hit == false:
 		$Timer2.start()		
 		hit = true
 		health -= 1
+
+	
+		
 		print('hit')
 		pass # Replace with function body
 	pass # Replace with function body.
+
+func up_health():
+	var health_p =$"../CanvasLayer/TextureProgressBar"
+	health_p.value = health
+
+	
+
+
+
+
+
+func _on_timer_4_timeout():
+	if health<max_health:
+		health += 1				

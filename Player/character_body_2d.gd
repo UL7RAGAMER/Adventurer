@@ -8,13 +8,11 @@ var direction : Vector2 = Vector2.ZERO
 var health = 2
 signal player_hurt()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if health  == 0:
 		$".".queue_free()
 	var pos = $"../Player".position.x - $".".position.x
-	print(pos)
 	if anilocked == false:
 		$boar.play("idle")
 	if not is_on_floor():
@@ -31,18 +29,20 @@ func _physics_process(delta):
 			
 	else:
 		run = false	
-	if (pos <= 27 and pos > 0) or (pos >= -29 and pos < 0) :
-		player_hurt.emit()
+
 		pass
 	if pos > 0:
 		$boar.flip_h = true 
 	elif pos < 0:
 		$boar.flip_h = false
-		
+	hurt()
 	move_and_slide()
 	
 
-
+func hurt():
+	var pos = $"../Player".position.x - $".".position.x
+	if (pos <= 28 and pos > 0) or (pos >= -30 and pos < 0) :
+		player_hurt.emit()
 func _on_boar_animation_finished():
 	if $boar.animation == 'hurt':
 		anilocked = false
