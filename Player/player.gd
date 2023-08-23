@@ -143,18 +143,6 @@ func _on_timer_3_timeout():
 	Trasisin.change_scene_to_file("res://Player/game.tscn")
 	pass
 
-func _on_character_body_2d_player_hurt():
-
-	if hit == false:
-		$Timer2.start()		
-		hit = true
-		health -= 1
-
-	
-		
-		print('hit')
-		pass # Replace with function body
-	pass # Replace with function body.
 
 func up_health():
 	var health_p =$"../CanvasLayer/TextureProgressBar"
@@ -169,3 +157,22 @@ func up_health():
 func _on_timer_4_timeout():
 	if health<max_health:
 		health += 1				
+
+
+func _on_character_body_2d_player_hurt(pos):
+	print('poshist')
+
+pass # Replace with function body.
+
+
+func _on_level_hurt():
+	if hit == false:
+		$Timer2.start()		
+		hit = true
+		health -= 1
+
+
+	
+	print('hit')
+	pass 	
+	pass # Replace with function body.

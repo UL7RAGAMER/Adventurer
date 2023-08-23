@@ -17,6 +17,7 @@ config/icon="res://Texture/icon.svg"
 [autoload]
 
 Trasisin="*res://Player/trasisin.tscn"
+PlayerPos="*res://Player/player pos.tscn"
 
 [display]
 

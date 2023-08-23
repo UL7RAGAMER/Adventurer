@@ -1,29 +1,29 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1692624134
+::res://::1692699017
 export_presets.cfg::TextFile::-1::1692321310::0::1::::<><>::
 governorgradital.ttf::FontFile::1950028515606644971::1692537390::1692537402::1::::<><>::
 StayPixelRegular-EaOxl.ttf::FontFile::1309057427019378455::1692449907::1692449910::1::::<><>::
 trasisin.gd::GDScript::-1::1692538635::0::1::::<>CanvasLayer<>::
-::res://Level/::1692623986
-control.tscn::PackedScene::3804324496711438073::1692623986::0::1::::<><>::uid://b5cj0h2smr86d::::res://Player/HealthBar DARK - Copy.png<>uid://bhhojyekmppyf::::res://Player/HealthBar DARK.png
-level.gd::GDScript::-1::1692580394::0::1::::<>Node2D<>::
+::res://Level/::1692628783
+control.tscn::PackedScene::3804324496711438073::1692625046::0::1::::<><>::
+level.gd::GDScript::-1::1692625041::0::1::::<>Node2D<>::
 level.tres::GradientTexture1D::4811494720118949244::1692623142::0::1::::<><>::
-level.tscn::PackedScene::6850930583806950551::1692623986::0::1::::<><>::res://Level/level.gd<>uid://du8i3i0ukc661::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png<>uid://cc8wav40o0jst::::res://Player/player.tscn<>uid://byy04pvr4scqt::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png<>uid://b5cjkrin86ev6::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png<>uid://dru054jhle1il::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>res://Level/Portal.gd<>uid://dqa8dunult8et::::res://Player/character_body_2d.tscn<>uid://lcsekr67212l::::res://Player/fireball.tscn
+level.tscn::PackedScene::6850930583806950551::1692628783::0::1::::<><>::res://Level/level.gd<>uid://du8i3i0ukc661::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png<>uid://cc8wav40o0jst::::res://Player/player.tscn<>uid://byy04pvr4scqt::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png<>uid://b5cjkrin86ev6::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png<>uid://dru054jhle1il::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png<>res://Level/Portal.gd<>uid://dqa8dunult8et::::res://Player/character_body_2d.tscn<>uid://lcsekr67212l::::res://Player/fireball.tscn<>uid://b5cj0h2smr86d::::res://Player/HealthBar DARK - Copy.png<>uid://bhhojyekmppyf::::res://Player/HealthBar DARK.png
 Portal.gd::GDScript::-1::1692071419::0::1::::<>StaticBody2D<>::
-wall.tscn::PackedScene::313826784181786715::1691924161::0::1::::<><>::uid://ceu5d6kl25a5
-::res://Player/::1692624091
+wall.tscn::PackedScene::313826784181786715::1692625046::0::1::::<><>::uid://dxmp2w3n1ha8x::::res://Texture/TX Tileset Wall.png
+::res://Player/::1692625046
 bluefb.tscn::PackedScene::8651875100342058826::1692439729::0::1::::<><>::uid://blg6q60vm2w82
 character_body_2d.gd::GDScript::-1::1692617612::0::1::::<>CharacterBody2D<>::
-character_body_2d.tscn::PackedScene::8284293638904482855::1692623986::0::1::::<><>::uid://c26tme7ujelpw::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png<>res://Player/character_body_2d.gd<>uid://bvmoi08roerp1::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png<>uid://yylc61xkyc8u::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png<>uid://bu2t73iychqpj::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black - Copy.png
+character_body_2d.tscn::PackedScene::8284293638904482855::1692625046::0::1::::<><>::uid://c26tme7ujelpw::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png<>res://Player/character_body_2d.gd<>uid://bvmoi08roerp1::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png<>uid://yylc61xkyc8u::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png<>uid://bu2t73iychqpj::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black - Copy.png
 fireball.gd::GDScript::-1::1692445201::0::1::::<>Area2D<>::
-fireball.tscn::PackedScene::777306637519421313::1692623986::0::1::::<><>::res://Player/fireball.gd<>uid://cnkiuh551ksas::::res://Texture/fb_particles.png<>uid://da3jettf3sn8r::::res://Texture/Pixilart Sprite Sheet.png<>uid://dtf3swtk0u4bn::::res://Texture/fb.png
+fireball.tscn::PackedScene::777306637519421313::1692625046::0::1::::<><>::res://Player/fireball.gd<>uid://cnkiuh551ksas::::res://Texture/fb_particles.png<>uid://da3jettf3sn8r::::res://Texture/Pixilart Sprite Sheet.png<>uid://dtf3swtk0u4bn::::res://Texture/fb.png
 game.gd::GDScript::-1::1692538635::0::1::::<>Control<>::
-game.tscn::PackedScene::7295468485787152477::1692623986::0::1::::<><>::res://Player/game.gd
+game.tscn::PackedScene::7295468485787152477::1692625046::0::1::::<><>::res://Player/game.gd
 HealthBar DARK - Copy.png::CompressedTexture2D::4496806256332463981::1692623304::1692623305::1::::<><>::
 HealthBar DARK.png::CompressedTexture2D::2893060610692239849::1692623244::1692623231::1::::<><>::
-player.gd::GDScript::-1::1692624091::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::4982680443332370723::1692623986::0::1::::<><>::res://Player/player.gd<>uid://k2w7ahe40bkw::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png<>uid://bdwt5spr5w1gq::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Dead/Dead-Sheet.png<>uid://c35w5md5fv66x::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png<>uid://27xiraop08wp::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png<>uid://cou1kdbbxquoe::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png<>uid://buv11wcvjny72::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png<>uid://dmux77200nt56::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png
-trasisin.tscn::PackedScene::5908350648020632091::1692623986::0::1::::<><>::res://trasisin.gd
+player.gd::GDScript::-1::1692624979::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::4982680443332370723::1692625046::0::1::::<><>::res://Player/player.gd<>uid://k2w7ahe40bkw::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png<>uid://bdwt5spr5w1gq::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Dead/Dead-Sheet.png<>uid://c35w5md5fv66x::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png<>uid://27xiraop08wp::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png<>uid://cou1kdbbxquoe::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png<>uid://buv11wcvjny72::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png<>uid://dmux77200nt56::::res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png
+trasisin.tscn::PackedScene::5908350648020632091::1692625046::0::1::::<><>::res://trasisin.gd
 ::res://Run/::1691932054
 adventurer-idle-00.png::CompressedTexture2D::1642609166786205276::1691921284::1691921284::1::::<><>::
 adventurer-idle-01.png::CompressedTexture2D::7349728278905336083::1691921284::1691921284::1::::<><>::

@@ -1,3 +1,4 @@
+Node2D
 CanvasLayer
 Control
 Container
@@ -23,5 +24,4 @@ StaticBody2D
 TileMap
 CollisionShape2D
 RigidBody2D
-Node2D
 Camera2D

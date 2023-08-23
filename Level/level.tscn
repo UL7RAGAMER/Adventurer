@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4uv3cur76h0r"]
+[gd_scene load_steps=18 format=3 uid="uid://c4uv3cur76h0r"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_b3drq"]
 [ext_resource type="Texture2D" uid="uid://du8i3i0ukc661" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_ohnlv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lcsekr67212l" path="res://Player/fireball.tscn" id="9_k5on2"]
 [ext_resource type="Texture2D" uid="uid://b5cj0h2smr86d" path="res://Player/HealthBar DARK - Copy.png" id="10_bjdie"]
 [ext_resource type="Texture2D" uid="uid://bhhojyekmppyf" path="res://Player/HealthBar DARK.png" id="11_n7icd"]
+[ext_resource type="PackedScene" uid="uid://bpv2alj17upsr" path="res://Player/player pos.tscn" id="12_pqfdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtydr"]
 size = Vector2(82, 69)
@@ -3406,10 +3407,10 @@ layer_1/tile_data = PackedInt32Array(2883747, 65544, 0, 2949283, 65544, 1, 30148
 position = Vector2(518.866, 544.343)
 
 [node name="spw2" type="Marker2D" parent="."]
-position = Vector2(754.395, 547.013)
+position = Vector2(2048.35, 385.129)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_f5iit")]
-position = Vector2(619.281, 468.472)
+position = Vector2(947.379, 443.016)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(254.543, 658.05)
@@ -3449,7 +3450,13 @@ texture_under = ExtResource("10_bjdie")
 texture_progress = ExtResource("11_n7icd")
 metadata/_edit_use_anchors_ = true
 
+[node name="Baor" type="Node2D" parent="."]
+
+[node name="Node2D" parent="." instance=ExtResource("12_pqfdy")]
+
+[connection signal="hurt" from="." to="Player" method="_on_level_hurt"]
 [connection signal="body_entered" from="Portal/Area2D" to="Portal" method="_on_area_2d_body_entered"]
+[connection signal="player_hurt" from="CharacterBody2D" to="." method="_on_character_body_2d_player_hurt" flags=3]
 [connection signal="player_hurt" from="CharacterBody2D" to="Player" method="_on_character_body_2d_player_hurt"]
 [connection signal="bluefb" from="Player" to="." method="_on_player_bluefb"]
 [connection signal="fireball" from="Player" to="." method="_on_player_fireball"]

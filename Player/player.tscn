@@ -412,6 +412,7 @@ height = 50.0
 size = Vector2(20, 61)
 
 [node name="Player" type="CharacterBody2D"]
+safe_margin = 0.875
 script = ExtResource("1_edqt5")
 
 [node name="player" type="AnimatedSprite2D" parent="."]

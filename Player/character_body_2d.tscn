@@ -174,7 +174,7 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 23
+collision_mask = 7
 script = ExtResource("1_jaqas")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

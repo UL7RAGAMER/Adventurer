@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var anilocked :bool = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var t = 0.03
+var t = 0.02
 var dmg = false
 var run  = false
 var direction : Vector2 = Vector2.ZERO
@@ -16,8 +16,9 @@ func _physics_process(delta):
 	if anilocked == false:
 		$boar.play("idle")
 	if not is_on_floor():
-		velocity.y += (gravity) * delta
-	if (pos < 100 and pos > 0) or (pos > -100 and pos < 0) :
+		velocity.y += (gravity) * delta 
+	if (pos < 150 and pos > 0) or (pos > -150 and pos < 0) :
+		t = randf_range(0,0.03)
 		run = true
 		$".".global_position =  $".".global_position.lerp($"../Player".global_position, t)
 		anilocked = true
@@ -40,9 +41,13 @@ func _physics_process(delta):
 	
 
 func hurt():
+	var x = false
 	var pos = $"../Player".position.x - $".".position.x
 	if (pos <= 28 and pos > 0) or (pos >= -30 and pos < 0) :
 		player_hurt.emit()
+		x = true
+	return(x)	
+		
 func _on_boar_animation_finished():
 	if $boar.animation == 'hurt':
 		anilocked = false
