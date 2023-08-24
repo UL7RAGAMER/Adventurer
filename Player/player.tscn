@@ -484,9 +484,13 @@ one_shot = true
 [node name="Bluefb_cd" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer5" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
 [connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]
 [connection signal="area_entered" from="attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="Fireball_cd" to="." method="_on_fireball_cd_timeout"]
 [connection signal="timeout" from="Bluefb_cd" to="." method="_on_bluefb_cd_timeout"]
+[connection signal="timeout" from="Timer5" to="." method="_on_timer_5_timeout"]

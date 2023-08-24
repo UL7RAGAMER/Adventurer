@@ -5,11 +5,10 @@ var t = 0.02
 var dmg = false
 var run  = false
 var direction : Vector2 = Vector2.ZERO
-var health = 2
+var health = 5
 signal player_hurt()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	print(PlayerPos.dmg)
 	if health  == 0:
 		$".".queue_free()
 	var pos = $"../Player".position.x - $".".position.x
@@ -36,6 +35,8 @@ func _physics_process(delta):
 		$boar.flip_h = true 
 	elif pos < 0:
 		$boar.flip_h = false
+#	_on_player_fb_dmg()
+#	_on_player_bfb_dmg()
 	hurt()
 	move_and_slide()
 	
@@ -62,21 +63,30 @@ func _on_timer_timeout():
 
 
 func _on_area_2d_area_entered(area):
-	health -= 1
+	health -= PlayerPos.dmg
 	if run == true:
 		print('working2')
 	$Timer.start()
 	anilocked = true
 	dmg = true
 	$boar.play("hurt")
-	print('hurt')
 	pass
 
 
 func _on_player_dead():
 	queue_free()
 	
+	
 
 func _on_player_posi(position):
 	pass
+
+
+
+
+func _on_level_dmg(dmg) -> void:
+	pass # Replace with function body.
+
+
+
 

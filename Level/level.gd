@@ -8,14 +8,13 @@ var num = 0
 signal hurt()
 func _ready():
 	pass
-
+signal dmg(dmg) 
 func _process(delta):
 	num += 1
 	var pos1 = $spw1.position
 	var pos2 = $spw2.position
 	var f_pos = pos1
 	f_pos.x = randi_range(pos1.x,pos2.x) 
-	print(f_pos)
 	var b = boar.instantiate() as CharacterBody2D
 	b.position = f_pos
 	if num<10:
@@ -29,16 +28,18 @@ func _on_player_fireball(pos, direction):
 	fb.rotation_degrees = rad_to_deg(direction.angle())
 	fb.direction = direction
 	$Fireballs.add_child(fb)
+	PlayerPos.dmg_change(2)
 	
 
 
 
 func _on_player_bluefb(pos, dir):
-	var  bfb = bluefb.instantiate() as RigidBody2D
+	var  bfb = bluefb.instantiate() as Area2D
 	bfb.position = pos
-	bfb.linear_velocity = dir * 500
+	bfb.rotation_degrees = rad_to_deg(dir.angle())
+	bfb.direction = dir
 	$Fireballs.add_child(bfb)
-	pass # Replace with function body.
+	PlayerPos.dmg_change(1)
 
 
 func _on_player_dead():

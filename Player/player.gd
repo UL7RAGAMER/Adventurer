@@ -4,6 +4,8 @@ signal fireball(position,direction )
 signal bluefb(position, direction)
 signal atk()
 signal dead()
+
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -220.0
 const max_health = 10
@@ -16,8 +18,7 @@ var was_in_air : bool = false
 var can_attacked : bool = true
 var can_fb : bool = true
 var can_bfb : bool = true
-
-
+var mana = 100
 func _physics_process(delta):
 	if health == 0:
 		$Timer3.start()
@@ -47,26 +48,33 @@ func _physics_process(delta):
 			get_node("attack").set_scale(Vector2(-1, 1))
 			
 	if Input.is_action_just_pressed("fireball") and can_fb:
-		can_fb = false
-		var fb_markers  = $Fireball_pos.get_children()
-		var selected_marker = fb_markers[randi() % fb_markers.size()]
-		var direc_fb = (get_global_mouse_position() - position).normalized()
-		print('fireball')
-		$Fireball_cd.start()
-		fireball.emit(selected_marker.global_position, direc_fb)	
+		if mana > 50:		
+			can_fb = false
+			var fb_markers  = $Fireball_pos.get_children()
+			var selected_marker = fb_markers[randi() % fb_markers.size()]
+			var direc_fb = (get_global_mouse_position() - position).normalized()
+			print('fireball')
+			mana -= 50
+			$Fireball_cd.start()
+			fireball.emit(selected_marker.global_position, direc_fb)
+
 	if Input.is_action_just_pressed("bluefb") and can_bfb:
-		can_bfb = false
-		var  bfb_marker = $Fireball_pos2.get_children()
-		var selected_marker = bfb_marker[randi() % bfb_marker.size()]
-		var direc_bfb = (get_global_mouse_position() - position).normalized()
-		$Bluefb_cd.start()
-		bluefb.emit(selected_marker.global_position, direc_bfb)	
+		if mana > 30:
+			can_bfb = false
+			var  bfb_marker = $Fireball_pos2.get_children()
+			var selected_marker = bfb_marker[randi() % bfb_marker.size()]
+			var direc_bfb = (get_global_mouse_position() - position).normalized()
+			mana -= 30
+			$Bluefb_cd.start()
+			bluefb.emit(selected_marker.global_position, direc_bfb)	
+
 	if not ani_locked:
 		if direction.x != 0:
 			$player.play("run")
 		else:
 			$player.play("idle")
 			pass	
+	$"../CanvasLayer/TextureProgressBar2".value = mana
 	attack()
 	posi.emit(position)	
 	up_health()
@@ -78,6 +86,7 @@ func _physics_process(delta):
 
 
 func update_direction():
+	
 	if direction.x > 0:
 		$player.flip_h = false 
 	elif direction.x < 0:
@@ -92,7 +101,7 @@ func  land():
 	ani_locked = true
 func attack():
 	if Input.is_action_just_pressed("Primary Action") and can_attacked:
-
+		PlayerPos.dmg = 5
 		$player.play('atk')
 		can_attacked = false
 		$attack/sword.set_deferred("disabled",true)
@@ -159,20 +168,19 @@ func _on_timer_4_timeout():
 		health += 1				
 
 
-func _on_character_body_2d_player_hurt(pos):
-	print('poshist')
-
-pass # Replace with function body.
-
 
 func _on_level_hurt():
 	if hit == false:
 		$Timer2.start()		
 		hit = true
 		health -= 1
-
-
-	
 	print('hit')
 	pass 	
 	pass # Replace with function body.
+	
+	
+
+
+func _on_timer_5_timeout():
+	if mana < 100:
+		mana +=1

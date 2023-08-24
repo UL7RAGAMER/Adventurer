@@ -1,4 +1,7 @@
 res://Level/level.tscn
+res://Player/character_body_2d.gd
+res://Level/level.gd
+res://Node2D.gd
 res://Player/fireball.tscn
 res://Player/player.tscn
 res://Player/character_body_2d.tscn
@@ -6,8 +9,6 @@ res://Player/game.tscn
 res://Player/trasisin.tscn
 res://Level/control.tscn
 res://Level/wall.tscn
-res://Player/character_body_2d.gd
-res://Player/player.gd
-res://Level/level.gd
-res://Node2D.gd
 res://Player/player pos.tscn
+res://Player/bluefb.tscn
+res://Player/player.gd

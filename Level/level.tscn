@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4uv3cur76h0r"]
+[gd_scene load_steps=21 format=3 uid="uid://c4uv3cur76h0r"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_b3drq"]
 [ext_resource type="Texture2D" uid="uid://du8i3i0ukc661" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_ohnlv"]
@@ -9,9 +9,12 @@
 [ext_resource type="Script" path="res://Level/Portal.gd" id="8_cvmg7"]
 [ext_resource type="PackedScene" uid="uid://dqa8dunult8et" path="res://Player/character_body_2d.tscn" id="8_f5iit"]
 [ext_resource type="PackedScene" uid="uid://lcsekr67212l" path="res://Player/fireball.tscn" id="9_k5on2"]
-[ext_resource type="Texture2D" uid="uid://b5cj0h2smr86d" path="res://Player/HealthBar DARK - Copy.png" id="10_bjdie"]
-[ext_resource type="Texture2D" uid="uid://bhhojyekmppyf" path="res://Player/HealthBar DARK.png" id="11_n7icd"]
+[ext_resource type="Texture2D" uid="uid://1dvnm47r2ffl" path="res://Level/Heart&ManaUi.png" id="10_4o4ir"]
+[ext_resource type="Texture2D" uid="uid://cqmyflbm0teeu" path="res://Level/Heart&ManaUi - Copy.png" id="11_e78n8"]
+[ext_resource type="Texture2D" uid="uid://v5mykjb4fre" path="res://Level/Heart&ManaUi - OG.png" id="12_f47qs"]
+[ext_resource type="Texture2D" uid="uid://dvujqe6lwv5gj" path="res://Level/Heart&ManaUi - OG (2).png" id="12_jns3m"]
 [ext_resource type="PackedScene" uid="uid://bpv2alj17upsr" path="res://Player/player pos.tscn" id="12_pqfdy"]
+[ext_resource type="Texture2D" uid="uid://dxig7xrls18xd" path="res://Level/Heart&ManaUi - OG (3).png" id="13_fu6d8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtydr"]
 size = Vector2(82, 69)
@@ -3427,6 +3430,9 @@ drag_vertical_enabled = true
 position = Vector2(254.543, 658.05)
 collision_mask = 30
 
+[node name="Timer5" parent="Player" index="11"]
+autostart = true
+
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
@@ -3434,20 +3440,36 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.00953468
-anchor_top = -0.530079
-anchor_right = 0.312535
-anchor_bottom = 0.603922
-offset_left = -69.1481
-offset_top = -29.8164
-offset_right = -452.948
-offset_bottom = -726.934
+anchor_left = 0.00382351
+anchor_top = 0.0103023
+anchor_right = 0.385137
+anchor_bottom = 0.11982
+offset_right = -501.101
+offset_bottom = -70.0949
 grow_horizontal = 0
-scale = Vector2(6.55351, 6.55351)
+scale = Vector2(5.59726, 5.67296)
 max_value = 10.0
 value = 10.0
-texture_under = ExtResource("10_bjdie")
-texture_progress = ExtResource("11_n7icd")
+texture_under = ExtResource("10_4o4ir")
+texture_progress = ExtResource("11_e78n8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -2.7523e-05
+anchor_top = 0.0226445
+anchor_right = 0.381286
+anchor_bottom = 0.102957
+offset_left = 3.06122
+offset_top = 64.4602
+offset_right = -498.04
+offset_bottom = 13.0575
+grow_horizontal = 0
+scale = Vector2(5.59726, 5.67296)
+value = 100.0
+texture_under = ExtResource("12_f47qs")
+texture_over = ExtResource("12_jns3m")
+texture_progress = ExtResource("13_fu6d8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Baor" type="Node2D" parent="."]
@@ -3456,8 +3478,7 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="hurt" from="." to="Player" method="_on_level_hurt"]
 [connection signal="body_entered" from="Portal/Area2D" to="Portal" method="_on_area_2d_body_entered"]
-[connection signal="player_hurt" from="CharacterBody2D" to="." method="_on_character_body_2d_player_hurt" flags=3]
-[connection signal="player_hurt" from="CharacterBody2D" to="Player" method="_on_character_body_2d_player_hurt"]
+[connection signal="player_hurt" from="CharacterBody2D" to="." method="_on_character_body_2d_player_hurt"]
 [connection signal="bluefb" from="Player" to="." method="_on_player_bluefb"]
 [connection signal="fireball" from="Player" to="." method="_on_player_fireball"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

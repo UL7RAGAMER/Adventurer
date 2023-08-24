@@ -1,5 +1,7 @@
-Node2D
+Area2D
+Timer
 CanvasLayer
+Node2D
 Control
 Container
 TextureProgressBar
@@ -13,8 +15,6 @@ Marker2D
 RemoteTransform2D
 PanelContainer
 MarginContainer
-Timer
-Area2D
 CollisionPolygon2D
 AnimatedSprite2D
 CharacterBody2D
