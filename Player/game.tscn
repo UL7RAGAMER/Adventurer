@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://db68kg5lhghjp"]
+[gd_scene load_steps=4 format=3 uid="uid://db68kg5lhghjp"]
 
 [ext_resource type="Script" path="res://Player/game.gd" id="1_2vov3"]
+[ext_resource type="FontFile" uid="uid://swd8qfo05kdj" path="res://StayPixelRegular-EaOxl.ttf" id="2_ti3t6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5saxa"]
+font = ExtResource("2_ti3t6")
 font_size = 316
 
 [node name="Control" type="Control"]
@@ -29,15 +31,55 @@ color = Color(0.3705, 0.57, 0, 1)
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.351875
+anchor_left = 0.335625
 anchor_top = 0.015444
-anchor_right = 0.687822
-anchor_bottom = 0.196526
-offset_right = 1120.48
-offset_bottom = 293.299
+anchor_right = 0.70777
+anchor_bottom = 0.164871
+offset_right = 722.569
+offset_bottom = 140.895
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.324195, 0.324195)
+scale = Vector2(0.451769, 0.451769)
 text = "Game over"
 label_settings = SubResource("LabelSettings_5saxa")
 metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4275
+anchor_top = 0.359073
+anchor_right = 0.600931
+anchor_bottom = 0.498412
+offset_right = 4948.51
+offset_bottom = 1930.73
+scale = Vector2(0.0530978, 0.0530978)
+theme_override_colors/font_color = Color(0.858824, 1, 0.709804, 1)
+theme_override_fonts/font = ExtResource("2_ti3t6")
+theme_override_font_sizes/font_size = 1491
+keep_pressed_outside = true
+text = "Restart"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4275
+anchor_top = 0.554698
+anchor_right = 0.600931
+anchor_bottom = 0.694036
+offset_right = 4948.51
+offset_bottom = 1930.73
+scale = Vector2(0.0530978, 0.0530978)
+theme_override_colors/font_color = Color(0.858824, 1, 0.709804, 1)
+theme_override_fonts/font = ExtResource("2_ti3t6")
+theme_override_font_sizes/font_size = 1491
+keep_pressed_outside = true
+text = "Quit
+"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

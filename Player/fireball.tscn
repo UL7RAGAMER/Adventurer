@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://lcsekr67212l"]
+[gd_scene load_steps=32 format=3 uid="uid://lcsekr67212l"]
 
 [ext_resource type="Script" path="res://Player/fireball.gd" id="1_8ub67"]
 [ext_resource type="Texture2D" uid="uid://cnkiuh551ksas" path="res://Texture/fb_particles.png" id="2_va0oi"]
 [ext_resource type="Texture2D" uid="uid://da3jettf3sn8r" path="res://Texture/Pixilart Sprite Sheet.png" id="3_r7gbh"]
 [ext_resource type="Texture2D" uid="uid://dtf3swtk0u4bn" path="res://Texture/fb.png" id="4_0ib0o"]
+[ext_resource type="Texture2D" uid="uid://cmyqahemr5bi8" path="res://Texture/fb - Copy-sheet.png" id="4_7qguk"]
+[ext_resource type="AudioStream" uid="uid://76ckrrknylqg" path="res://Audio/fire-magic-6947.mp3" id="6_vq85l"]
 
 [sub_resource type="Curve" id="Curve_c7bs1"]
 bake_resolution = 1000
@@ -53,6 +55,42 @@ region = Rect2(400, 0, 100, 100)
 atlas = ExtResource("3_r7gbh")
 region = Rect2(500, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hqh"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4gx6"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pq3r"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo1uf"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvwvu"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb7qp"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(350, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7oh0"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(420, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugd8"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(490, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k62tu"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(560, 0, 70, 70)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rn57e"]
 atlas = ExtResource("4_0ib0o")
 region = Rect2(0, 0, 70, 70)
@@ -100,6 +138,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4gx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pq3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo1uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb7qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7oh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jugd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k62tu")
+}],
+"loop": false,
+"name": &"fizziling",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rn57e")
 }, {
 "duration": 1.0,
@@ -138,8 +208,11 @@ shape = SubResource("CircleShape2D_v3ugu")
 [node name="fireball" type="AnimatedSprite2D" parent="."]
 position = Vector2(55, 4)
 sprite_frames = SubResource("SpriteFrames_gh3b6")
-animation = &"new_animation"
+animation = &"fizziling"
 autoplay = "new_animation"
-frame_progress = 0.46376
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vq85l")
+max_distance = 1000.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

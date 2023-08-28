@@ -8,8 +8,10 @@ var direction : Vector2 = Vector2.ZERO
 var health = 5
 signal player_hurt()
 func _physics_process(delta):
-	print(PlayerPos.dmg)
-	if health  == 0:
+	t = randf_range(0,0.03)
+	if PlayerPos.dead == true:
+		t = 0
+	if health  <= 0:
 		$".".queue_free()
 	var pos = $"../Player".position.x - $".".position.x
 	if anilocked == false:
@@ -17,7 +19,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += (gravity) * delta 
 	if (pos < 150 and pos > 0) or (pos > -150 and pos < 0) :
-		t = randf_range(0,0.03)
+
 		run = true
 		$".".global_position =  $".".global_position.lerp($"../Player".global_position, t)
 		anilocked = true
@@ -63,9 +65,8 @@ func _on_timer_timeout():
 
 
 func _on_area_2d_area_entered(area):
+	await get_tree().create_timer(0.1).timeout	
 	health -= PlayerPos.dmg
-	if run == true:
-		print('working2')
 	$Timer.start()
 	anilocked = true
 	dmg = true
@@ -73,10 +74,7 @@ func _on_area_2d_area_entered(area):
 	pass
 
 
-func _on_player_dead():
-	queue_free()
-	
-	
+
 
 func _on_player_posi(position):
 	pass

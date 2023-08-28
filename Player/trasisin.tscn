@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqgbw31n0ck6v"]
+[gd_scene load_steps=6 format=3 uid="uid://cqgbw31n0ck6v"]
 
 [ext_resource type="Script" path="res://trasisin.gd" id="1_prt7j"]
+[ext_resource type="AudioStream" uid="uid://fcgb1ykolwlb" path="res://Audio/videogame-death-sound-43894.mp3" id="2_u51wh"]
 
 [sub_resource type="Animation" id="Animation_aipcp"]
 length = 0.001
@@ -55,3 +56,6 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_fj4hs")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u51wh")
