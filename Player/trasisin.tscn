@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.505882, 0.658824, 0.447059, 0.0901961), Color(0.505882, 0.658824, 0.447059, 1)]
+"values": [Color(0, 0, 0, 0.0901961), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fj4hs"]
@@ -52,7 +52,6 @@ grow_vertical = 2
 color = Color(0.505882, 0.658824, 0.447059, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_fj4hs")
 }

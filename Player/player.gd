@@ -6,7 +6,7 @@ signal atk()
 signal dead()
 const SPEED = 200.0
 const JUMP_VELOCITY = -220.0
-var max_health = 10 * PlayerPos.def
+var max_health = PlayerPos.def
 var health = max_health 
 var hit = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,15 +22,12 @@ var fb_cost = 40
 var bfb_cost = 20
 var mana = PlayerPos.mana
 func _physics_process(delta):
-	if PlayerPos.def_changed == true:
-		max_health += PlayerPos.def
-		print(max_health)
-		
-		PlayerPos.def_changed = false
+	max_health = PlayerPos.def
+
 	$"../CanvasLayer/TextureProgressBar2".set_max(PlayerPos.max_mana)
 	$"../CanvasLayer/TextureProgressBar".set_max(max_health)
 	up_health()
-	if health == 0:
+	if health <= 0:
 		health = 0
 		$player.play("dead")
 
@@ -199,11 +196,11 @@ func _on_timer_4_timeout():
 
 
 
-func _on_level_hurt():
+func _on_level_hurt(d):
 	if hit == false:
 		$Timer2.start()		
 		hit = true
-		health -= 1
+		health -= d
 	pass 	
 	pass # Replace with function body.
 	

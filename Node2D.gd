@@ -6,10 +6,11 @@ var dmg_multiplyer = 1
 var max_mana = 100
 var mana = max_mana
 var mana_multi = 1	
-var def = 1
+var def = 10
 var def_changed = false
 
 func _process(delta):
+	
 	pass
 	
 func position():
@@ -44,13 +45,10 @@ func mana_change(con):
 	print(mana_multi)	
 func defense_change(con):
 	if con == 'yes':
-		def = 1
+		def += 1
 	if con == 'no':
-		def = 1
-
+		def -=1
 	if con == 'z':
-		def = 1
-	print('asd')	
-	def_changed = true
-
+		def = 10
+	print(def)
 	pass

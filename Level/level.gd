@@ -70,7 +70,7 @@ func _on_player_bluefb(pos, dir):
 
 
 func _on_character_body_2d_player_hurt():
-	hurt.emit()
+	hurt.emit(1)
 	
 
 
@@ -122,26 +122,30 @@ func _on_button_4_pressed():
 
 
 func _on_button_5_pressed():
-	if PlayerPos.def <=0:
-		PlayerPos.defense_change('z')
-	else:
-		PlayerPos.defense_change('yes')
+
+	PlayerPos.defense_change('yes')
 	
 
 	var stat_def = PlayerPos.def
 	$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
-	
+
 	pass # Replace with function body.
 
 
 func _on_button_6_pressed():
-	if PlayerPos.def <=1:
+	if PlayerPos.def <=10:
 		PlayerPos.defense_change('z')
 	else:
 		PlayerPos.defense_change('no')
 	
 
 	var stat_def = PlayerPos.def
+
 	$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
 	
+	pass # Replace with function body.
+
+
+func _on_boar_player_hurt_1():
+	hurt.emit(3)
 	pass # Replace with function body.

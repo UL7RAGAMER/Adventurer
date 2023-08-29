@@ -11,3 +11,13 @@ func change_scene_to_file(target: String) -> void:
 	get_tree().change_scene_to_file(target)
 	await($AnimationPlayer.animation_finished)
 	$".".visible = false
+func playani():
+	print('sfd')
+	$".".visible = true
+	$AnimationPlayer.play("new_animation")
+
+func r_playani():
+	print('sfd')
+	$".".visible = true
+	$AnimationPlayer.play_backwards("new_animation")
+

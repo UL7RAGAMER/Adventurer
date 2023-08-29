@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4uv3cur76h0r"]
+[gd_scene load_steps=40 format=3 uid="uid://c4uv3cur76h0r"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_b3drq"]
 [ext_resource type="Texture2D" uid="uid://du8i3i0ukc661" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_ohnlv"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bpaykf31on7n8" path="res://Texture/plus1.png" id="19_h8tmo"]
 [ext_resource type="Texture2D" uid="uid://c0flfs1e5tqbs" path="res://Texture/plus.png" id="20_mc0hp"]
 [ext_resource type="FontFile" uid="uid://c8c74lsfpxju3" path="res://Pixeboy-z8XGD.ttf" id="21_j0wkq"]
+[ext_resource type="PackedScene" uid="uid://c4l8dmuyh0g4o" path="res://Level/b_boar.tscn" id="22_jrwf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtydr"]
 size = Vector2(82, 69)
@@ -3564,6 +3565,7 @@ libraries = {
 }
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
@@ -3759,7 +3761,10 @@ offset_bottom = 426.341
 scale = Vector2(0.0895875, 0.0895875)
 theme_override_fonts/font = ExtResource("21_j0wkq")
 theme_override_font_sizes/font_size = 336
-text = "1"
+text = "10"
+
+[node name="Boar" parent="." instance=ExtResource("22_jrwf8")]
+position = Vector2(561.306, 558.927)
 
 [connection signal="hurt" from="." to="Player" method="_on_level_hurt"]
 [connection signal="body_entered" from="Portal/Area2D" to="Portal" method="_on_area_2d_body_entered"]
@@ -3774,6 +3779,7 @@ text = "1"
 [connection signal="pressed" from="CanvasLayer2/Control/Panel2/Control2/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control/Panel2/Control3/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control/Panel2/Control3/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="player_hurt1" from="Boar" to="." method="_on_boar_player_hurt_1"]
 
 [editable path="Player"]
 [editable path="Fireball"]

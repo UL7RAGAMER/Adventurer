@@ -7,8 +7,8 @@ func _process(delta):
 
 
 func _on_restart_pressed():
-	Trasisin.visible = true
-	Trasisin.change_scene_to_file("res://Level/level.tscn")
+	Trasisin.r_playani()
+	get_tree().change_scene_to_file('res://Level/level.tscn')
 	pass
 
 
