@@ -21,14 +21,39 @@ var can_move = true
 var fb_cost = 40
 var bfb_cost = 20
 var mana = PlayerPos.mana
+
+var x = -1045
+var y = 1
 func _physics_process(delta):
+	$GPUParticles2D.process_material.set_emission_sphere_radius(1)
+	if Input.is_key_pressed(KEY_Y):
+		$GPUParticles2D.visible = true
+		supre_saiyan()
+	else:
+		$GPUParticles2D.visible = false
+		rest()
+		
+	$"../CanvasLayer/Label3".set_text(str(exp1))
+	$"../CanvasLayer/Label3".set_text(str(exp1))
+	if Input.is_action_just_pressed('xp'):
+		gain_xp(1)
 	max_health = PlayerPos.def
+	$"../CanvasLayer/TextureProgressBar3".set_max(exp_req)
+	$"../CanvasLayer/TextureProgressBar3".set_value(exp1)
+	if Input.is_action_just_pressed("ui_home"):
+		
+		print(lvl)
+		print(exp1)
+		print(exp_req)
 
 	$"../CanvasLayer/TextureProgressBar2".set_max(PlayerPos.max_mana)
 	$"../CanvasLayer/TextureProgressBar".set_max(max_health)
 	up_health()
 	if health <= 0:
 		health = 0
+		PlayerPos.dmg_multiplyer = 1
+		PlayerPos.max_mana = 100
+		PlayerPos.def = 10
 		$player.play("dead")
 
 		await $player.animation_finished
@@ -38,9 +63,9 @@ func _physics_process(delta):
 		$"../CanvasLayer/AnimationTree".play("new_animation")		
 		$"../CanvasLayer".visible = false
 		$".".visible = false
-		Trasisin.visible = true
+		
 		Trasisin.change_scene_to_file("res://Player/game.tscn")
-
+		dead.emit()
 	if not is_on_floor():
 		velocity.y += (gravity) * delta
 		was_in_air = true
@@ -101,7 +126,7 @@ func _physics_process(delta):
 
 	update_direction()
 	_on_player_2d_animation_finished()
-	
+
 func inventory():
 	if Input.is_action_just_pressed("inventory"):
 		print('work')
@@ -210,6 +235,41 @@ func _on_level_hurt(d):
 func _on_timer_5_timeout():
 	if mana < PlayerPos.max_mana:
 		mana +=1
+var lvl = 1 
+var exp1 = 0
+var exp_total = 0
+var exp_req = req_xp(lvl + 1)
+func req_xp(lvl):
+	return pow(lvl,2) + lvl * 10
+	
+func gain_xp(amount):
+	exp_total+= amount
+	exp1 += amount
+	while exp1 >= exp_req:
+		
+		exp1 -= exp_req
+		lvl_up()
+		print(exp1)
+func lvl_up():
+	lvl += 1
+	exp_req = req_xp(lvl + 1)
+	$"../CanvasLayer/Label".set_text(str(lvl))
+	PlayerPos.points += 1
+func supre_saiyan():	
+	var supre = $GPUParticles2D.process_material.get_param_texture(4).get_curve().get_point_left_tangent(1)
+	print(supre,'c')
+	if supre <= 0:
+		$GPUParticles2D.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,x)
+		x+=10
+	var supre1 = $GPUParticles2D.process_material.get_emission_sphere_radius()
+	print(supre1,'e')
+	if supre1 <= 250:
+		$GPUParticles2D.process_material.set_emission_sphere_radius(y)
+		y+=1
 
+	pass
+func rest():
+	$GPUParticles2D.process_material.set_emission_sphere_radius(1)
+	$GPUParticles2D.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,-1045)
 
-
+	

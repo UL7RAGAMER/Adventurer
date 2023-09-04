@@ -13,6 +13,7 @@ func _ready():
 signal dmg(dmg) 
 func _process(delta):
 	num += 1
+	$CanvasLayer2/Control/Panel2/Label2.set_text(str(PlayerPos.points))
 	var pos1 = $spw1.position
 	var pos2 = $spw2.position
 	var f_pos = pos1
@@ -76,72 +77,84 @@ func _on_character_body_2d_player_hurt():
 
 
 func _on_button_pressed():
-	PlayerPos.dmg_multi_changer('yes')
-	var stat_dmg = PlayerPos.dmg_multiplyer
+	if PlayerPos.points > 0:
+		PlayerPos.points -= 1
+		PlayerPos.dmg_multi_changer('yes')
+		var stat_dmg = PlayerPos.dmg_multiplyer
+		
+		$CanvasLayer2/Control/Panel2/Control/Label.set_text(str(stat_dmg))
 	
-	$CanvasLayer2/Control/Panel2/Control/Label.set_text(str(stat_dmg))
-	pass # Replace with function body.
 
 
 func _on_button_2_pressed():
-	PlayerPos.dmg_multi_changer('no')
-	
-	if PlayerPos.dmg_multiplyer <=0:
-		PlayerPos.dmg_multi_changer('z')
+	if PlayerPos.dmg_multiplyer !=1:
+		PlayerPos.points += 1
+		PlayerPos.dmg_multi_changer('no')
 		
-	var stat_dmg = PlayerPos.dmg_multiplyer
-	$CanvasLayer2/Control/Panel2/Control/Label.set_text(str(stat_dmg))
-	
-	pass # Replace with function body.
+		if PlayerPos.dmg_multiplyer <=0:
+			PlayerPos.dmg_multi_changer('z')
+			
+		var stat_dmg = PlayerPos.dmg_multiplyer
+		$CanvasLayer2/Control/Panel2/Control/Label.set_text(str(stat_dmg))
+		
+		pass # Replace with function body.
 
 
 func _on_button_3_pressed():
-	PlayerPos.mana_change('yes')
-	
-	if PlayerPos.max_mana <=100:
-		PlayerPos.mana_change('z')
+	if PlayerPos.points > 0:
+		PlayerPos.points -= 1
+		PlayerPos.mana_change('yes')
 		
-	var stat_mana = PlayerPos.max_mana
-	stat_mana = round(stat_mana)
-	$CanvasLayer2/Control/Panel2/Control2/Label2.set_text(str(stat_mana))
-	pass # Replace with function body.
+		if PlayerPos.max_mana <=100:
+			PlayerPos.mana_change('z')
+			
+		var stat_mana = PlayerPos.max_mana
+		stat_mana = round(stat_mana)
+		$CanvasLayer2/Control/Panel2/Control2/Label2.set_text(str(stat_mana))
+		pass # Replace with function body.
 
 
 func _on_button_4_pressed():
-	await get_tree().create_timer(0.1).timeout
-	if PlayerPos.max_mana <=100:
-		PlayerPos.mana_change('z')
-	else:
-		PlayerPos.mana_change('no')
-	
+	if PlayerPos.max_mana != 100:
+		PlayerPos.points += 1
+		await get_tree().create_timer(0.1).timeout
+		if PlayerPos.max_mana <=100:
+			PlayerPos.mana_change('z')
+		else:
+			PlayerPos.mana_change('no')
+		
 
-	var stat_mana = PlayerPos.max_mana
-	stat_mana = round(stat_mana)
-	$CanvasLayer2/Control/Panel2/Control2/Label2.set_text(str(stat_mana))
+		var stat_mana = PlayerPos.max_mana
+		stat_mana = round(stat_mana)
+		$CanvasLayer2/Control/Panel2/Control2/Label2.set_text(str(stat_mana))
 	pass # Replace with function body.
 
 
 func _on_button_5_pressed():
+	if PlayerPos.points > 0:
+		PlayerPos.points -= 1
 
-	PlayerPos.defense_change('yes')
-	
+		PlayerPos.defense_change('yes')
+		
 
-	var stat_def = PlayerPos.def
-	$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
+		var stat_def = PlayerPos.def
+		$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
 
-	pass # Replace with function body.
+		pass # Replace with function body.
 
 
 func _on_button_6_pressed():
-	if PlayerPos.def <=10:
-		PlayerPos.defense_change('z')
-	else:
-		PlayerPos.defense_change('no')
-	
+	if PlayerPos.def != 10:
+		PlayerPos.points += 1
+		if PlayerPos.def <=10:
+			PlayerPos.defense_change('z')
+		else:
+			PlayerPos.defense_change('no')
+		
 
-	var stat_def = PlayerPos.def
+		var stat_def = PlayerPos.def
 
-	$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
+		$CanvasLayer2/Control/Panel2/Control3/Label3.set_text(str(stat_def))
 	
 	pass # Replace with function body.
 

@@ -13,6 +13,8 @@ func _physics_process(delta):
 		t = 0
 	if health  <= 0:
 		$".".queue_free()
+		var c = get_node('/root/Level/Player')
+		c.gain_xp(50)
 	var pos = $"../Player".position.x - $".".position.x
 	if anilocked == false:
 		$boar.play("idle")

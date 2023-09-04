@@ -8,9 +8,9 @@ var mana = max_mana
 var mana_multi = 1	
 var def = 10
 var def_changed = false
-
+var points = 0
+var x = load("res://Player/player.tscn")
 func _process(delta):
-	
 	pass
 	
 func position():
@@ -26,9 +26,9 @@ func dmg_change(dmg1):
 	
 func dmg_multi_changer(con):
 	if con == 'yes':
-		dmg_multiplyer += 1
+		dmg_multiplyer += 0.1
 	if con == 'no':
-		dmg_multiplyer -= 1
+		dmg_multiplyer -= 0.1
 	if con == 'z':
 		dmg_multiplyer = 1
 		
@@ -52,3 +52,8 @@ func defense_change(con):
 		def = 10
 	print(def)
 	pass
+func _dead():
+	def = 10
+	dmg_multiplyer = 1
+	max_mana = 100
+	

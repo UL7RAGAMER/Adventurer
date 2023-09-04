@@ -6,6 +6,7 @@ var dmg = false
 var run  = false
 var direction : Vector2 = Vector2.ZERO
 var health = 15
+var xp = 100
 signal player_hurt1()
 func _physics_process(delta):
 	t = randf_range(0,0.03)
@@ -13,6 +14,8 @@ func _physics_process(delta):
 		t = 0
 	if health  <= 0:
 		$".".queue_free()
+		var c = get_node('/root/Level/Player')
+		c.gain_xp(150)
 	var pos = $"../Player".position.x - $".".position.x
 	if anilocked == false:
 		$boar.play("idle")

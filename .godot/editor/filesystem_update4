@@ -1,16 +1,12 @@
-res://Level/b_boar.tscn
+res://Player/player.tscn
 res://Player/character_body_2d.gd
 res://Level/level.tscn
 res://Player/fireball.tscn
-res://Player/player.tscn
+res://Level/b_boar.tscn
 res://Player/character_body_2d.tscn
 res://Player/trasisin.tscn
 res://Player/player pos.tscn
 res://Player/bluefb.tscn
 res://Player/inventory.tscn
-res://Level/b_boar.gd
-res://Level/level.gd
-res://Player/player.gd
-res://Player/game.gd
 res://Player/game.tscn
-res://trasisin.gd
+res://Player/player.gd
