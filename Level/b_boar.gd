@@ -21,7 +21,7 @@ func _physics_process(delta):
 		$boar.play("idle")
 	if not is_on_floor():
 		velocity.y += (gravity) * delta 
-	if (pos < 200 and pos > 0) or (pos > -200 and pos < 0) :
+	if (pos < 100 and pos > 0) or (pos > -100 and pos < 0) :
 
 		run = true
 		var direc = ($"../Player".global_position.x - $".".global_position.x )
