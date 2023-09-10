@@ -1,6 +1,7 @@
-[gd_scene load_steps=77 format=3 uid="uid://cc8wav40o0jst"]
+[gd_scene load_steps=78 format=3 uid="uid://cc8wav40o0jst"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_edqt5"]
+[ext_resource type="Texture2D" uid="uid://vopundayk7on" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/particles - Copy.png" id="2_sotpr"]
 [ext_resource type="Texture2D" uid="uid://k2w7ahe40bkw" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_td4xw"]
 [ext_resource type="Texture2D" uid="uid://bdwt5spr5w1gq" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Dead/Dead-Sheet.png" id="3_3wc0a"]
 [ext_resource type="Texture2D" uid="uid://c35w5md5fv66x" path="res://Texture/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="3_ob3vl"]
@@ -30,7 +31,7 @@ curve = SubResource("Curve_p3cfg")
 emission_shape = 1
 emission_sphere_radius = 0.01
 particle_flag_disable_z = true
-gravity = Vector3(0, -1000, 0)
+gravity = Vector3(0, -183.21, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 radial_accel_max = 133.75
@@ -244,21 +245,21 @@ region = Rect2(480, 0, 80, 80)
 atlas = ExtResource("7_vctef")
 region = Rect2(560, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2lr8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb06a"]
 atlas = ExtResource("9_35283")
-region = Rect2(0, 0, 80, 80)
+region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0iigk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbtmf"]
 atlas = ExtResource("9_35283")
-region = Rect2(80, 0, 80, 80)
+region = Rect2(64, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5hep"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_smtqe"]
 atlas = ExtResource("9_35283")
-region = Rect2(160, 0, 80, 80)
+region = Rect2(128, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mtyww"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_345kj"]
 atlas = ExtResource("9_35283")
-region = Rect2(240, 0, 80, 80)
+region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_re207"]
 animations = [{
@@ -452,16 +453,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2lr8")
+"texture": SubResource("AtlasTexture_hb06a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0iigk")
+"texture": SubResource("AtlasTexture_dbtmf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v5hep")
+"texture": SubResource("AtlasTexture_smtqe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mtyww")
+"texture": SubResource("AtlasTexture_345kj")
 }],
 "loop": true,
 "name": &"super",
@@ -479,18 +480,34 @@ collision_mask = 31
 safe_margin = 0.875
 script = ExtResource("1_edqt5")
 
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+z_index = -65
+position = Vector2(-16, -24)
+amount = 30416
+process_material = SubResource("ParticleProcessMaterial_ukh14")
+texture = ExtResource("2_sotpr")
+lifetime = 1.9
+preprocess = 1.0
+explosiveness = 0.07
+randomness = 0.07
+fixed_fps = 1000
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -65
 position = Vector2(-8, -12)
-amount = 11974
+amount = 5891
 process_material = SubResource("ParticleProcessMaterial_ukh14")
 texture = ExtResource("10_ce5pd")
 lifetime = 1.9
+preprocess = 1.0
+explosiveness = 0.07
+randomness = 0.07
+fixed_fps = 1000
 
 [node name="player" type="AnimatedSprite2D" parent="."]
 position = Vector2(-46, -53)
 sprite_frames = SubResource("SpriteFrames_re207")
-animation = &"jump_air"
+animation = &"atk"
 autoplay = "idle"
 centered = false
 

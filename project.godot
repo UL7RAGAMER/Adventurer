@@ -19,12 +19,17 @@ config/icon="res://Texture/icon.svg"
 
 Trasisin="*res://Player/trasisin.tscn"
 PlayerPos="*res://Player/player pos.tscn"
+InputBuffer="*res://godot-input-buffer-godot-4/input_buffer.gd"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=777
 window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 
@@ -100,6 +105,7 @@ xp={
 2d_physics/layer_3="Projectiles"
 2d_physics/layer_4="Zones"
 2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Coliders"
 
 [physics]
 

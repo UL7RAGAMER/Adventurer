@@ -28,23 +28,23 @@ func _physics_process(delta):
 	$GPUParticles2D.process_material.set_emission_sphere_radius(1)
 	if Input.is_key_pressed(KEY_Y):
 		$GPUParticles2D.visible = true
+		$GPUParticles2D2.visible = true
+		$player.play("super")
+	
 		supre_saiyan()
 	else:
 		$GPUParticles2D.visible = false
+		$GPUParticles2D2.visible = false
+		
 		rest()
 		
 	$"../CanvasLayer/Label3".set_text(str(exp1))
 	$"../CanvasLayer/Label3".set_text(str(exp1))
-	if Input.is_action_just_pressed('xp'):
+	if InputBuffer.is_action_press_buffered('xp'):
 		gain_xp(1)
 	max_health = PlayerPos.def
 	$"../CanvasLayer/TextureProgressBar3".set_max(exp_req)
 	$"../CanvasLayer/TextureProgressBar3".set_value(exp1)
-	if Input.is_action_just_pressed("ui_home"):
-		
-		print(lvl)
-		print(exp1)
-		print(exp_req)
 
 	$"../CanvasLayer/TextureProgressBar2".set_max(PlayerPos.max_mana)
 	$"../CanvasLayer/TextureProgressBar".set_max(max_health)
@@ -75,10 +75,10 @@ func _physics_process(delta):
 			land()	
 		was_in_air = false
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if InputBuffer.is_action_press_buffered("ui_accept") and is_on_floor():
 		jump()
 	
-	if Input.is_action_just_pressed("hurt"):
+	if InputBuffer.is_action_press_buffered("hurt"):
 		health-=1
 	if health != 0 and (not health<0):	
 		direction = Input.get_vector("Left", "Right", "None", 'None')
@@ -91,7 +91,7 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("Left"): 
 			get_node("attack").set_scale(Vector2(-1, 1))
 			
-	if Input.is_action_just_pressed("fireball") and can_fb:
+	if InputBuffer.is_action_press_buffered("fireball") and can_fb:
 		if mana > fb_cost:		
 			can_fb = false
 			var fb_markers  = $Fireball_pos.get_children()
@@ -102,7 +102,7 @@ func _physics_process(delta):
 			$Fireball_cd.start()
 			fireball.emit(selected_marker.global_position, direc_fb)
 
-	if Input.is_action_just_pressed("bluefb") and can_bfb:
+	if InputBuffer.is_action_press_buffered("bluefb") and can_bfb:
 		if mana > bfb_cost:
 			can_bfb = false
 			var  bfb_marker = $Fireball_pos2.get_children()
@@ -119,6 +119,7 @@ func _physics_process(delta):
 			$player.play("idle")
 			pass	
 	$"../CanvasLayer/TextureProgressBar2".value = mana
+
 	attack()
 	posi.emit(position)	
 	inventory()				
@@ -128,7 +129,7 @@ func _physics_process(delta):
 	_on_player_2d_animation_finished()
 
 func inventory():
-	if Input.is_action_just_pressed("inventory"):
+	if InputBuffer.is_action_press_buffered("inventory"):
 		print('work')
 		if $"../CanvasLayer2".visible == true:
 			$"../CanvasLayer2".visible = false
@@ -150,7 +151,7 @@ func  land():
 	$player.play('jump_end')
 	ani_locked = true
 func attack():
-	if Input.is_action_just_pressed("Primary Action") and can_attacked:
+	if InputBuffer.is_action_press_buffered("Primary Action") and can_attacked:
 		var x = randi() % $Node2D.get_child_count()
 		var y = $Node2D.get_children()
 		y[x].play()
@@ -257,19 +258,31 @@ func lvl_up():
 	PlayerPos.points += 1
 func supre_saiyan():	
 	var supre = $GPUParticles2D.process_material.get_param_texture(4).get_curve().get_point_left_tangent(1)
-	print(supre,'c')
-	if supre <= 0:
+	var supre2 = $GPUParticles2D2.process_material.get_param_texture(4).get_curve().get_point_left_tangent(1)
+	if supre <= 0 and supre2 <= 0:
 		$GPUParticles2D.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,x)
+		$GPUParticles2D2.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,x)
 		x+=10
 	var supre1 = $GPUParticles2D.process_material.get_emission_sphere_radius()
-	print(supre1,'e')
-	if supre1 <= 250:
+	var supre3 = $GPUParticles2D2.process_material.get_emission_sphere_radius()
+	if supre1 <= 250 and supre3<=250:
 		$GPUParticles2D.process_material.set_emission_sphere_radius(y)
+		$GPUParticles2D2.process_material.set_emission_sphere_radius(y)
 		y+=1
 
 	pass
 func rest():
-	$GPUParticles2D.process_material.set_emission_sphere_radius(1)
-	$GPUParticles2D.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,-1045)
-
-	
+	var supre1 = $GPUParticles2D.process_material.get_emission_sphere_radius()
+	var supre3 = $GPUParticles2D2.process_material.get_emission_sphere_radius()
+	if supre1 <= 250 and supre3 <= 250:
+		await get_tree().create_timer(1).timeout
+		$GPUParticles2D.process_material.set_emission_sphere_radius(y)
+		$GPUParticles2D2.process_material.set_emission_sphere_radius(y)
+		y=0
+#	var supre = $GPUParticles2D.process_material.get_param_texture(4).get_curve().get_point_left_tangent(1)
+#	var supre2 = $GPUParticles2D2.process_material.get_param_texture(4).get_curve().get_point_left_tangent(1)
+#	if supre <= 0 and supre2 <= 0:
+#		$GPUParticles2D.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,x)
+#		$GPUParticles2D2.process_material.get_param_texture(4).get_curve().set_point_left_tangent(1,x)
+#		x =-1045
+#

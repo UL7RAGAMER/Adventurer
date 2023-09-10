@@ -1,12 +1,22 @@
-res://Player/player.tscn
+res://AudioStreamPlayer2D.gd
+res://Player/bfb_ani.gd
+res://Player/bluefb.gd
+res://Level/b_boar.gd
 res://Player/character_body_2d.gd
+res://Player/fireball.gd
+res://Player/game.gd
+res://godot-input-buffer-godot-4/input_buffer.gd
+res://Level/level.gd
+res://Node2D.gd
+res://Player/player.gd
+res://addons/node_referencer/plugin.cfg
 res://Level/level.tscn
 res://Player/fireball.tscn
 res://Level/b_boar.tscn
+res://Player/player.tscn
 res://Player/character_body_2d.tscn
 res://Player/trasisin.tscn
 res://Player/player pos.tscn
 res://Player/bluefb.tscn
 res://Player/inventory.tscn
 res://Player/game.tscn
-res://Player/player.gd

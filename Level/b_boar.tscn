@@ -170,7 +170,7 @@ animations = [{
 }]
 
 [node name="Boar" type="CharacterBody2D"]
-scale = Vector2(2.40896, 2.40896)
+scale = Vector2(2.1396, 2.1396)
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_f5pnc")
