@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10s7ubsnvhxb"]
+
+[ext_resource type="Texture2D" uid="uid://dk27pkkxhne0k" path="res://Texture/inventorty.png" id="1_ay4xi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ktged"]
+texture = ExtResource("1_ay4xi")
+
+[node name="Panel" type="Panel"]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ktged")

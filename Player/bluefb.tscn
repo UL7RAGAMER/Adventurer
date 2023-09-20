@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvjbebngw85kw"]
+
+[ext_resource type="Script" path="res://Player/bluefb.gd" id="1_bso54"]
+[ext_resource type="Texture2D" uid="uid://ces7ogb132hbg" path="res://Texture/particles.png" id="1_j10jh"]
+[ext_resource type="AudioStream" uid="uid://bxj747jfkbpxu" path="res://Audio/bfb.mp3" id="5_4vu31"]
+
+[sub_resource type="Curve" id="Curve_ta84p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_g4bmi"]
+width = 56
+curve = SubResource("Curve_ta84p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vub4k"]
+emission_shape = 1
+emission_sphere_radius = 12.51
+particle_flag_disable_z = true
+gravity = Vector3(0, -9.365, 0)
+angular_velocity_min = -195.7
+angular_velocity_max = 93.45
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_g4bmi")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtlbs"]
+radius = 19.9856
+
+[node name="bluefb" type="Area2D"]
+scale = Vector2(0.430004, 0.430004)
+collision_layer = 4
+collision_mask = 18
+linear_damp = 3.187
+script = ExtResource("1_bso54")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-1, 4.76837e-07)
+scale = Vector2(0.677814, 0.495091)
+amount = 1209
+process_material = SubResource("ParticleProcessMaterial_vub4k")
+texture = ExtResource("1_j10jh")
+lifetime = 4.52
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.43, 0.43)
+shape = SubResource("CircleShape2D_qtlbs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4vu31")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

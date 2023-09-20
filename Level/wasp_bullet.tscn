@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://rys8xlye1qtb"]
+
+[ext_resource type="Texture2D" uid="uid://c2notormmeqw0" path="res://Texture/wasp_atk.png" id="1_527mn"]
+[ext_resource type="Script" path="res://Level/wasp_bullet.gd" id="1_680kd"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_moxmo"]
+a = Vector2(8.22445, 7.83919)
+b = Vector2(0.26368, 7.91651)
+
+[node name="bullet" type="Node2D"]
+z_index = 80
+script = ExtResource("1_680kd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_527mn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.59528, -9.38898)
+rotation = 0.0163795
+scale = Vector2(1.17762, 1.17762)
+shape = SubResource("SegmentShape2D_moxmo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.18229, -0.231163)
+scale = Vector2(0.500978, 0.238898)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqgbw31n0ck6v"]
+
+[ext_resource type="Script" path="res://trasisin.gd" id="1_prt7j"]
+[ext_resource type="AudioStream" uid="uid://fcgb1ykolwlb" path="res://Audio/videogame-death-sound-43894.mp3" id="2_u51wh"]
+
+[sub_resource type="Animation" id="Animation_aipcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.505882, 0.658824, 0.447059, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8rtjq"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.0901961), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj4hs"]
+_data = {
+"RESET": SubResource("Animation_aipcp"),
+"new_animation": SubResource("Animation_8rtjq")
+}
+
+[node name="trasisin" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_prt7j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505882, 0.658824, 0.447059, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fj4hs")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u51wh")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://downiljy7e3de"]
+
+[ext_resource type="Script" path="res://wasp.gd" id="1_5fhuj"]
+[ext_resource type="SpriteFrames" uid="uid://wab0xnlg06xs" path="res://Texture/Pixel Art Top Down - Basic/new_sprite_frames.tres" id="2_84ow3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cia1g"]
+radius = 16.0
+height = 68.0
+
+[node name="wasp" type="CharacterBody2D"]
+script = ExtResource("1_5fhuj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -24)
+sprite_frames = ExtResource("2_84ow3")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -25)
+shape = SubResource("CapsuleShape2D_cia1g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

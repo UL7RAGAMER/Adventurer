@@ -1,0 +1,218 @@
+[gd_scene load_steps=32 format=3 uid="uid://lcsekr67212l"]
+
+[ext_resource type="Script" path="res://Player/fireball.gd" id="1_8ub67"]
+[ext_resource type="Texture2D" uid="uid://cnkiuh551ksas" path="res://Texture/fb_particles.png" id="2_va0oi"]
+[ext_resource type="Texture2D" uid="uid://da3jettf3sn8r" path="res://Texture/Pixilart Sprite Sheet.png" id="3_r7gbh"]
+[ext_resource type="Texture2D" uid="uid://dtf3swtk0u4bn" path="res://Texture/fb.png" id="4_0ib0o"]
+[ext_resource type="Texture2D" uid="uid://cmyqahemr5bi8" path="res://Texture/fb - Copy-sheet.png" id="4_7qguk"]
+[ext_resource type="AudioStream" uid="uid://76ckrrknylqg" path="res://Audio/fire-magic-6947.mp3" id="6_vq85l"]
+
+[sub_resource type="Curve" id="Curve_c7bs1"]
+bake_resolution = 1000
+_data = [Vector2(0.0496454, 1), 1.01775, -3.4251, 0, 0, Vector2(0.985816, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fmtui"]
+width = 731
+curve = SubResource("Curve_c7bs1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pagej"]
+emission_shape = 1
+emission_sphere_radius = 12.51
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -66.5
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_fmtui")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3ugu"]
+radius = 22.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114e3"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qv65"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l855"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuhi6"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf83x"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ysk"]
+atlas = ExtResource("3_r7gbh")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hqh"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4gx6"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pq3r"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo1uf"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvwvu"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb7qp"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(350, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7oh0"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(420, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugd8"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(490, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k62tu"]
+atlas = ExtResource("4_7qguk")
+region = Rect2(560, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn57e"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1i87"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txrcn"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g010n"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds5dp"]
+atlas = ExtResource("4_0ib0o")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gh3b6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qv65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l855")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuhi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf83x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ysk")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4gx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pq3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo1uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb7qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7oh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jugd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k62tu")
+}],
+"loop": false,
+"name": &"fizziling",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn57e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1i87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txrcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g010n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds5dp")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 14.0
+}]
+
+[node name="Fireball" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 4
+collision_mask = 23
+script = ExtResource("1_8ub67")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(66.6667, 10)
+amount = 153
+process_material = SubResource("ParticleProcessMaterial_pagej")
+texture = ExtResource("2_va0oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(65, 5)
+shape = SubResource("CircleShape2D_v3ugu")
+
+[node name="fireball" type="AnimatedSprite2D" parent="."]
+position = Vector2(55, 4)
+sprite_frames = SubResource("SpriteFrames_gh3b6")
+animation = &"fizziling"
+autoplay = "new_animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vq85l")
+max_distance = 1000.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

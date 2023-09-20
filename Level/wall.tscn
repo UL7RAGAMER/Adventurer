@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqaxfthocp12"]
+
+[ext_resource type="Texture2D" uid="uid://dxmp2w3n1ha8x" path="res://Texture/TX Tileset Wall.png" id="1_q413c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1hu8"]
+size = Vector2(792.325, 71.8295)
+
+[node name="wall" type="StaticBody2D"]
+position = Vector2(835, 440)
+scale = Vector2(2.29511, 2.29511)
+
+[node name="Wall N" type="Sprite2D" parent="."]
+position = Vector2(-17.864, -161.648)
+scale = Vector2(1.06971, 1)
+
+[node name="Wall_peice3" type="Sprite2D" parent="Wall N"]
+position = Vector2(-154.017, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice4" type="Sprite2D" parent="Wall N"]
+position = Vector2(-270.758, 2)
+scale = Vector2(0.822698, 1)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice5" type="Sprite2D" parent="Wall N"]
+position = Vector2(-27.0169, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice6" type="Sprite2D" parent="Wall N"]
+position = Vector2(100.983, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice8" type="Sprite2D" parent="Wall N"]
+position = Vector2(228.983, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice9" type="Sprite2D" parent="Wall N"]
+position = Vector2(355.203, 2)
+scale = Vector2(0.980996, 1)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall S" type="Sprite2D" parent="."]
+position = Vector2(20.4783, 205.219)
+scale = Vector2(1.06855, 1)
+
+[node name="Wall_peice2" type="Sprite2D" parent="Wall S"]
+position = Vector2(-308.478, 2)
+scale = Vector2(0.80571, 1)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice3" type="Sprite2D" parent="Wall S"]
+position = Vector2(-64.8153, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice4" type="Sprite2D" parent="Wall S"]
+position = Vector2(-192.815, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice5" type="Sprite2D" parent="Wall S"]
+position = Vector2(62.1847, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice6" type="Sprite2D" parent="Wall S"]
+position = Vector2(190.185, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="Wall_peice8" type="Sprite2D" parent="Wall S"]
+position = Vector2(318.185, 2)
+texture = ExtResource("1_q413c")
+region_enabled = true
+region_rect = Rect2(32.188, 191.837, 127.728, 64.2153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33.446, -157.042)
+shape = SubResource("RectangleShape2D_e1hu8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(31.8067, 204.181)
+shape = SubResource("RectangleShape2D_e1hu8")
